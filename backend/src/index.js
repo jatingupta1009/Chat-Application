@@ -7,7 +7,7 @@ const cors= require('cors');
 const {app, server, io}= require('./lib/socket');
 
 app.use(cors({
-    origin: "https://chat-application-6-edm0.onrender.com",
+    origin: "https://chat-application-7fwi.onrender.com",
     credentials: true
 }));
 
