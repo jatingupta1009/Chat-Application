@@ -3,6 +3,10 @@ require('dotenv').config();
 const connectDB= require('./lib/db');
 const cookieParser= require('cookie-parser')
 const cors= require('cors');
+app.use(cors({
+    origin: "https://chat-application-6-edm0.onrender.com",
+    credentials: true
+}));
 
 const PORT= process.env.PORT || 5001
 
@@ -13,10 +17,6 @@ const {app, server, io}= require('./lib/socket');
 
 app.use(express.json({ limit: '50mb' }));
 app.use(cookieParser())
-app.use(cors({
-    origin: "https://chat-application-6-edm0.onrender.com",
-    credentials: true
-}));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/messages', messageRoutes);
