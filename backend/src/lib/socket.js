@@ -8,7 +8,8 @@ const server= http.createServer(app);
 const io= new Server(server, {
     cors:{
         origin: ["https://chat-application-7fwi.onrender.com"]
-    }
+    },
+    credentials: true
 });
 
 const getReceiverSocketId= (userId)=>{
