@@ -1,8 +1,10 @@
-import { User } from '../models/user.js';
-import bcrypt from 'bcryptjs';
-import generateToken from '../lib/utils.js';
-import cookie from 'cookie-parser';
-import cloudinary from '../lib/cloudinary.js';
+const { User }= require('../models/user')
+const bcrypt= require('bcryptjs')
+const generateToken= require('../lib/utils');
+const { sign } = require('jsonwebtoken');
+const cookie= require('cookie-parser')
+const cloudinary= require('../lib/cloudinary');
+const { UploadStream } = require('cloudinary');
 
 const signup= async (req,res)=>{
     const {fullName, email, password}= req.body; 
@@ -173,4 +175,4 @@ const checkAuth= (req, res)=>{
     }
 }
 
-export { signup, login, logout, updateProfile, checkAuth };
+module.exports= {signup, login, logout, updateProfile, checkAuth};
