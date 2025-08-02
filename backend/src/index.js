@@ -1,17 +1,16 @@
-const express= require('express');
-require('dotenv').config();
-const connectDB= require('./lib/db');
-const cookieParser= require('cookie-parser')
-const cors= require('cors');
-const path= require('path');
+import express from 'express';
+import dotenv from 'dotenv';
+import connectDB from './lib/db.js';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import path from 'path';
 
 const PORT= process.env.PORT || 5001;
-const __dirname= path.resolve();
 
-const authRoutes= require('./routes/authRoutes');
-const messageRoutes= require('./routes/messageRoutes');
+import authRoutes from './routes/authRoutes.js';
+import messageRoutes from './routes/messageRoutes.js';
 
-const {app, server, io}= require('./lib/socket');
+import { app, server, io } from './lib/socket.js';
 
 app.use(express.json({ limit: '50mb' }));
 app.use(cookieParser())
